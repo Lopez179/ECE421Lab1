@@ -5,13 +5,15 @@
 # Deliverable 3
 ## Question 1
 The code randomly generates a number 0 to n. If the number is even then add 1, if the number is odd do nothing. After this, if the number is prime return. If not repeat this process.
+
+The set bit line is done to force the number to be odd. This eliminates the need to check half the values which obviously aren't odd.
 ## Question 2
 Q2 in deliverable3 directory
 ## Question 3
 The Miller Rabin algorithm performs a probabilistic check on if an integer is prime or not, and gains more accuracy the more iterations are used. The code performs a Miller Rabin check with 6 iterations.
 
 1. Fine values s and d where candidate-1 = d*2^s
-Repeat 6 times:
+Repeat 5 times:
 2. Generate integer in the range on 2 to candidate-2. Let's call that integer basis
 3. Calculate x = basis^d % candidate
 4. If isn't x is 1, or x = candidate - 1: continue (start new repitition by going back to step 2)

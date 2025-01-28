@@ -1,4 +1,4 @@
-use apint::{ApInt, Width};
+use apint::{ApInt};
 use primes::is_prime;
 
 // Blue code is pseudo-code.
@@ -8,7 +8,7 @@ fn function(n: u32) -> u64 {
     let mut rng = rand::thread_rng();
     loop {
         let mut candidate = ApInt::from(rng.gen_range(0..n));
-        candidate.set_bit_at(0);
+        let _ = candidate.set_bit_at(0);
 
         let value = ApInt::resize_to_u64(&candidate);
 
@@ -19,5 +19,6 @@ fn function(n: u32) -> u64 {
 }
 
 fn main() {
-    let _output = function(100);
+    let output = function(1000);
+    println!("{}", output);
 }

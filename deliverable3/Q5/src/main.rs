@@ -1,5 +1,5 @@
 use core::num;
-use std::usize;
+use std::{process::Output, usize};
 
 use primes::{PrimeSet, Sieve, is_prime};
 
@@ -13,14 +13,14 @@ fn get_largest_primal_sum(primes: &Vec<i32>, mut sum: i32, leftbound_r: &usize, 
     let mut rightmark = rightbound;
 
     let mut primal_sum = 0;
-    while sum < 1000 {
+    while sum + primes[rightbound]< 1000 {
+        rightbound = rightbound + 1;
         sum = sum + primes[rightbound];
         if is_prime(sum as u64) {
             leftmark = leftbound;
             rightmark = rightbound;
             primal_sum = sum;
         }
-        rightbound = rightbound + 1;
     }
     output.push(leftmark as i32);
     output.push(rightmark as i32);
@@ -44,7 +44,7 @@ fn main() {
     let mut rightbound: usize = 0;
     let mut leftmark: usize = 0;
     let mut rightmark: usize = 0;
-    let sum: i32 = 0;
+    let sum: i32 = 2;
 
     let mut primal_sum: i32 = 0;
     let mut number_of_terms: usize = 0;
@@ -57,7 +57,7 @@ fn main() {
 
     leftbound = leftmark as usize;
     rightbound = rightmark as usize;
-    while rightbound < primes.len() {
+    while (rightbound < primes.len()) && (rightbound > leftbound)  {
         
         new_sum = new_sum - primes[leftbound];
         leftbound += 1;
@@ -67,13 +67,20 @@ fn main() {
             
             leftbound = current_solution[0] as usize;
             rightbound = current_solution[1] as usize;
-
+            leftmark = leftbound;
+            rightmark = rightbound;
+            new_sum = current_solution[2];
+            primal_sum = new_sum;
             number_of_terms = rightbound - leftbound + 1;
         }
     }
     
+    let mut ouput_vec: Vec<i32> = Vec::new();
+    for i in leftmark..rightmark+1 {
+        ouput_vec.push(primes[i]);
+    }
 
-
-    println!("{} {}", primal_sum, number_of_terms);
+    println!("{:?}", ouput_vec);
+    println!("Y: {}, {} terms", primal_sum, number_of_terms);
 
 }
