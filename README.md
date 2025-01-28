@@ -1,14 +1,17 @@
 # Deliverable 1
-
+Go to deliverable1 directory
+cargo run
 # Deliverable 2
-
+Go to deliverable2 directory
+cargo run
 # Deliverable 3
 ## Question 1
 The code randomly generates a number 0 to n. If the number is even then add 1, if the number is odd do nothing. After this, if the number is prime return. If not repeat this process.
 
 The set bit line is done to force the number to be odd. This eliminates the need to check half the values which obviously aren't odd.
 ## Question 2
-Q2 in deliverable3 directory
+Go to deliverable3/Q2 directory
+cargo run
 ## Question 3
 The Miller Rabin algorithm performs a probabilistic check on if an integer is prime or not, and gains more accuracy the more iterations are used. The code performs a Miller Rabin check with 6 iterations.
 
@@ -29,3 +32,5 @@ For each i in (0 - s-1)
 glass_pumpkin crate generates primes using prime and prejudice. They primes are cryptographically secure (very large)
 
 ## Question 5
+Go to deliverable3/Q5 directory
+cargo run
